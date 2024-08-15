@@ -1,0 +1,345 @@
+html, body {
+    height: 100%; /* Tüm yüksekliği kapsayacak şekilde ayarlayın */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    flex: 1; /* Ana içeriğin footer'ın üstünde genişlemesini sağlar */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* İçeriğin altına footer'ı yapıştırır */
+}
+
+/* Video ve intro ekranı stilini ayarlayın */
+.video-container {
+    position: fixed; /* Sabit konum */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Taşma engelleme */
+    z-index: 9999; /* Üstteki içerik için */
+}
+.intro-hidden {
+    display: none;
+}
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video ekranı kaplasın */
+}
+
+header {
+    position: relative;
+}
+
+/* Navbar stil ayarları */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Beyaz arka plan */
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd; /* İnce alt sınır */
+    box-sizing: border-box; /* Padding ve border box modeline dahil et */
+}
+
+/* Logo stil ayarları */
+.navbar-logo {
+    flex: 1;
+}
+
+.navbar-logo img {
+    height: 100px; /* Logo boyutu ayarları */
+}
+
+/* Navbar bağlantıları stil ayarları */
+.navbar-links {
+    display: flex;
+    flex: 9;
+    justify-content: center; /* Linkleri ortala */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #000000; /* Siyah yazı rengi */
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline; /* Üzerine gelindiğinde altı çizili */
+}
+
+/* Dil seçeneği stil ayarları */
+.navbar-lang {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Dil seçeneğini sağa yasla */
+}
+
+/* Dil seçeneğini her sayfada görünür yap */
+#language-select {
+    display: block; /* Her sayfada görünür olacak */
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Dil seçenekleri bağlantılarının üzerine gelindiğinde stil */
+#language-select a:hover {
+    color: #007bff; /* Hover rengini ayarlayın */
+}
+
+/* Card container stil ayarları */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px; /* Card'lar arasında boşluk */
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffff; /* Beyaz arka plan */
+    border: 1px solid #ddd; /* İnce sınır */
+    border-radius: 8px; /* Köşeleri yuvarlatma */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Hafif gölge */
+    width: 400px; /* Card genişliği */
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd; /* Alt sınır */
+}
+
+.card p {
+    margin: 10px 0; /* Metin üstü ve altı boşluğu */
+    padding: 0 10px; /* Metin yan boşlukları */
+}
+
+/* Buton stil ayarları */
+.btn-see-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #888; /* Gri renk */
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-see-more:hover {
+    background-color: #666; /* Hover efekti için daha koyu gri */
+}
+
+/* Ürün Kartı Stil Ayarları */
+.product-card {
+    display: flex;
+    align-items: flex-start; /* Üst hizaya göre ayarlar */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 1500px; /* Genişlik ayarlandı */
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s;
+}
+
+.product-card-image {
+    width: 450px; /* Genişlik ayarlandı */
+    height: auto;
+    object-fit: cover;
+}
+
+.product-card-body {
+    padding: 15px;
+    flex: 1;
+}
+
+.product-card-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.product-card-subtitle {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-card-description {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.product-card-list {
+    list-style-type: disc;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.product-card-list ul {
+    list-style-type: circle;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.product-card-list li {
+    margin: 5px 0;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us-content {
+    text-align: center;
+}
+
+.about-us-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-us-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.info-section {
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.info-section h3 {
+    font-size: 1.5em;
+    margin: 20px 0 10px;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-section ul li {
+    font-size: 1em;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.info-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Contact Us Section */
+.contact-us {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.contact-info, .contact-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.contact-info h2, .contact-form h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px; /* Formun genişliğini sınırlayın */
+    margin: 0 auto; /* Ortalamak için */
+    padding: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column; /* Form elemanlarını dikey olarak hizalayın */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+

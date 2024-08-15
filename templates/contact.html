@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar homepage">
+    <div class="navbar-logo">
+        <img src="{% get_media_prefix %}img/logo_transparent.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+    <div id="language-select">
+        <a href="/language/english">English</a>
+        <a href="/language/russian">Russian</a>
+    </div>
+</nav>
+
+<section class="contact-us">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Our Address</h2>
+                <p>
+                    Advanced Technologies LLC<br>
+                    VAT 01106202410066<br>
+                    Pervomaisky district, Novosibirsky lane, No. 3<br>
+                    720017, Bishkek, Kyrgyz Republic<br>
+                    Director: Bakyt Beishenbekov
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="contact-form">
+    <h2>Get In Touch</h2>
+    <form method="post" action="{% url 'contact_form' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Advanced Technologies LLC. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

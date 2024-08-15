@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optical Instruments</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar homepage">
+    <div class="navbar-logo">
+        <!-- Buraya logo ekleyebilirsiniz -->
+        <img src="{% get_media_prefix %}img/logo_transparent.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+    </div>
+    <div id="language-select">
+        <!-- Dil seçenekleri burada olacak -->
+        <a href="/language/english">English</a>
+        <a href="/language/russian">Russian</a>
+    </div>
+</nav>
+<main>
+    <div class="product-card">
+        <img src="{% get_media_prefix %}img/Optical Instruments-2.jpg" alt="Optical Instruments"
+             class="product-card-image">
+        <div class="product-card-body">
+            <h2 class="product-card-title"></h2>
+            <p class="product-card-description">
+                <strong>Optical instruments</strong> are devices designed to enhance vision or measure optical
+                properties, playing a crucial role in various fields such as military, space exploration, and scientific
+                research. They rely on advanced optics to provide precise measurements and detailed imagery.
+            </p>
+            <h3 class="product-card-subtitle">Types of Optical Instruments</h3>
+            <ul class="product-card-list">
+                <li><strong>Telescopes:</strong>
+                    <ul>
+                        <li><strong>Application:</strong> Used in astronomy to observe distant celestial objects. Types
+                            include refractors, reflectors, and compound telescopes.
+                        </li>
+                        <li><strong>Benefits:</strong> High magnification capabilities and detailed imaging of distant
+                            galaxies and stars.
+                        </li>
+                        <li><strong>Drawbacks:</strong> Expensive to manufacture, bulky, and requires regular
+                            maintenance and alignment.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Microscopes:</strong>
+                    <ul>
+                        <li><strong>Application:</strong> Employed in biological research and materials science to view
+                            small objects at high magnification. Types include light microscopes, electron microscopes,
+                            and scanning probe microscopes.
+                        </li>
+                        <li><strong>Benefits:</strong> Allows for detailed observation of microscopic structures and
+                            cells, crucial for scientific research.
+                        </li>
+                        <li><strong>Drawbacks:</strong> Can be costly, especially for advanced types like electron
+                            microscopes, and may require specialized training to operate.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Spectrometers:</strong>
+                    <ul>
+                        <li><strong>Application:</strong> Used in chemistry and physics to analyze the properties of
+                            light and other electromagnetic radiation. Types include mass spectrometers and optical
+                            spectrometers.
+                        </li>
+                        <li><strong>Benefits:</strong> Provides detailed information about the composition of substances
+                            and the properties of light.
+                        </li>
+                        <li><strong>Drawbacks:</strong> Complex and expensive, requiring precise calibration and
+                            maintenance.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Laser Rangefinders:</strong>
+                    <ul>
+                        <li><strong>Application:</strong> Utilized in military and surveying applications to measure
+                            distances with high precision.
+                        </li>
+                        <li><strong>Benefits:</strong> Accurate distance measurement, essential for targeting and
+                            navigation.
+                        </li>
+                        <li><strong>Drawbacks:</strong> Can be affected by environmental factors like fog or dust, and
+                            high-cost models may be required for long-range measurements.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 class="product-card-subtitle">Applications</h3>
+            <ul class="product-card-list">
+                <li><strong>Military:</strong>
+                    <ul>
+                        <li><strong>Night Vision Goggles:</strong> Optical instruments with advanced infrared technology
+                            to enable vision in low-light conditions.
+                        </li>
+                        <li><strong>Guidance Systems:</strong> Uses optical instruments like laser rangefinders and
+                            targeting scopes to improve accuracy in targeting and navigation.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Space Exploration:</strong>
+                    <ul>
+                        <li><strong>Space Telescopes:</strong> Instruments such as the Hubble Space Telescope use
+                            advanced optics to observe distant celestial objects and phenomena.
+                        </li>
+                        <li><strong>Satellite Imaging Systems:</strong> Optical instruments are critical for capturing
+                            high-resolution images of Earth and other celestial bodies.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Scientific Research:</strong>
+                    <ul>
+                        <li><strong>Biology and Medicine:</strong> Microscopes are indispensable for studying biological
+                            specimens, tissues, and cellular structures.
+                        </li>
+                        <li><strong>Chemistry and Physics:</strong> Spectrometers and other optical instruments help
+                            analyze material properties and chemical compositions.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Surveying and Engineering:</strong>
+                    <ul>
+                        <li><strong>Laser Scanners:</strong> Used to create detailed 3D models of physical environments,
+                            aiding in construction and topographic mapping.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 class="product-card-subtitle">Benefits</h3>
+            <ul class="product-card-list">
+                <li><strong>Precision:</strong> Optical instruments provide highly accurate measurements and detailed
+                    imagery, essential for research, exploration, and practical applications.
+                </li>
+                <li><strong>Versatility:</strong> They come in various types, each tailored to specific applications,
+                    from astronomical observation to microscopic analysis.
+                </li>
+                <li><strong>Advancement:</strong> Optical technology continues to evolve, offering enhanced capabilities
+                    and new applications in diverse fields.
+                </li>
+            </ul>
+            <h3 class="product-card-subtitle">Drawbacks</h3>
+            <ul class="product-card-list">
+                <li><strong>Cost:</strong> High-precision optical instruments can be expensive to purchase and maintain.
+                </li>
+                <li><strong>Complexity:</strong> Operating advanced optical instruments often requires specialized
+                    training and expertise.
+                </li>
+                <li><strong>Maintenance:</strong> Regular maintenance and calibration are necessary to ensure continued
+                    accuracy and performance.
+                </li>
+            </ul>
+            <p class="product-card-description">
+                In summary, optical instruments are pivotal in modern science, technology, and military applications.
+                Each type offers unique advantages suited to specific needs, though they also come with challenges such
+                as cost and complexity that must be managed to maximize their effectiveness.
+            </p>
+        </div>
+    </div>
+</main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Advanced Technologies LLC. All rights reserved.</p>
+        </div>
+    </footer>

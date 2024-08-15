@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django Site</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+</body>
+<nav class="navbar homepage">
+    <div class="navbar-logo">
+        <!-- Buraya logo ekleyebilirsiniz -->
+        <img src="{% get_media_prefix %}img/logo_transparent.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+    </div>
+    <div id="language-select">
+        <!-- Dil seçenekleri burada olacak -->
+        <a href="/language/english">English</a>
+        <a href="/language/russian">Russian</a>
+    </div>
+</nav>
+
+ <section class="contact-success">
+        <div class="container">
+            <h1>Thank You!</h1>
+            <p>Your message has been sent successfully. We will get back to you shortly.</p>
+            <a href="/" class="btn-home">Back to Home</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Advanced Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

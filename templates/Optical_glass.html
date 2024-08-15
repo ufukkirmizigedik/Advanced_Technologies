@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optical glass</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar homepage">
+        <div class="navbar-logo">
+            <!-- Logo -->
+            <img src="{% get_media_prefix %}img/logo_transparent.png" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div id="language-select">
+            <!-- Language Options -->
+            <a href="/language/english">English</a>
+            <a href="/language/russian">Russian</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="{% get_media_prefix %}img/optic glass-2.jpg" alt="Product Image" class="product-card-image">
+            <div class="product-card-body">
+                <h2 class="product-card-title">Optical Glass</h2>
+                <p class="product-card-description">
+                    <strong>Optical glass</strong> is a specialized material used extensively in advanced technologies, including military applications, space exploration, and laser systems. It is known for its precision and clarity, which are crucial for various high-performance instruments.
+                </p>
+                <h3 class="product-card-subtitle">Types of Optical Glass</h3>
+                <ul class="product-card-list">
+                    <li><strong>Fused Silica:</strong>
+                        <ul>
+                            <li><strong>Application:</strong> Predominantly used in high-power laser systems and space telescopes.</li>
+                            <li><strong>Benefits:</strong> Extremely high resistance to thermal and mechanical stress, and excellent transmission in the ultraviolet to infrared spectrum.</li>
+                            <li><strong>Drawbacks:</strong> Expensive to manufacture and can be brittle under certain conditions.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Borosilicate Glass:</strong>
+                        <ul>
+                            <li><strong>Application:</strong> Commonly used in telescopic lenses and military optics.</li>
+                            <li><strong>Benefits:</strong> High thermal resistance and low thermal expansion, making it suitable for variable temperature environments.</li>
+                            <li><strong>Drawbacks:</strong> Lower optical clarity compared to other types of optical glass, and can be prone to surface scratching.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lead Glass:</strong>
+                        <ul>
+                            <li><strong>Application:</strong> Utilized in high-precision optics for military targeting systems and high-resolution imaging systems.</li>
+                            <li><strong>Benefits:</strong> High refractive index, allowing for the production of compact lenses with superior optical performance.</li>
+                            <li><strong>Drawbacks:</strong> Heavier than other types and can be toxic if not handled properly.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Optical Quartz:</strong>
+                        <ul>
+                            <li><strong>Application:</strong> Used in high-frequency laser applications and in space-based observatories.</li>
+                            <li><strong>Benefits:</strong> Exceptional clarity and durability, with minimal optical distortion.</li>
+                            <li><strong>Drawbacks:</strong> Costly and challenging to manufacture with precision.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 class="product-card-subtitle">Applications</h3>
+                <ul class="product-card-list">
+                    <li><strong>Military:</strong>
+                        <ul>
+                            <li><strong>Night Vision Systems:</strong> Optical glass is used in night vision goggles and targeting systems. Fused silica and borosilicate glass are commonly used for their durability and clarity.</li>
+                            <li><strong>Guidance Systems:</strong> Lead glass lenses are often used in missile guidance and laser targeting systems due to their high refractive index and precision.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Space Exploration:</strong>
+                        <ul>
+                            <li><strong>Telescopes:</strong> Optical glass such as fused silica and optical quartz is employed in space telescopes to observe distant celestial objects with minimal distortion.</li>
+                            <li><strong>Satellites:</strong> High-precision optical glass is used in satellite imaging systems to capture detailed images of the Earth and space.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Laser Technologies:</strong>
+                        <ul>
+                            <li><strong>Laser Cutting and Welding:</strong> Optical glass with high resistance to thermal stress, like fused silica, is used in lasers for cutting and welding.</li>
+                            <li><strong>High-Power Lasers:</strong> Lead glass is used in high-power laser systems for its ability to handle intense light and heat.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 class="product-card-subtitle">Benefits</h3>
+                <ul class="product-card-list">
+                    <li><strong>Precision:</strong> Optical glass provides exceptional clarity and minimal distortion, which is essential for accurate measurements and high-resolution imaging.</li>
+                    <li><strong>Durability:</strong> Types like fused silica offer high resistance to thermal and mechanical stresses, enhancing the lifespan of optical components.</li>
+                    <li><strong>Performance:</strong> Optical glass improves the performance of advanced technologies by providing superior optical qualities and functionality.</li>
+                </ul>
+                <h3 class="product-card-subtitle">Drawbacks</h3>
+                <ul class="product-card-list">
+                    <li><strong>Cost:</strong> Specialized optical glasses can be expensive to produce and procure, impacting overall system costs.</li>
+                    <li><strong>Fragility:</strong> Some types of optical glass, such as fused silica, can be brittle and prone to breaking under high stress.</li>
+                    <li><strong>Environmental Impact:</strong> Certain optical glasses, particularly those containing lead, pose environmental and health risks if not handled properly.</li>
+                </ul>
+                <p class="product-card-description">
+                    In conclusion, optical glass is an indispensable material in modern technology, offering crucial advantages in military, space, and laser applications. Its various types each provide specific benefits suited to different uses, though they also come with challenges that need to be managed to maximize their effectiveness.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Advanced Technologies LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
