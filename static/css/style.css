@@ -40,9 +40,8 @@ footer {
     object-fit: cover; /* Video ekranı kaplasın */
 }
 
-header {
-    position: relative;
-}
+
+
 
 /* Navbar stil ayarları */
 .navbar {
@@ -61,7 +60,7 @@ header {
 }
 
 .navbar-logo img {
-    height: 100px; /* Logo boyutu ayarları */
+    height: 150px; /* Logo boyutu ayarları */
 }
 
 /* Navbar bağlantıları stil ayarları */
@@ -83,13 +82,6 @@ header {
 }
 
 /* Dil seçeneği stil ayarları */
-.navbar-lang {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end; /* Dil seçeneğini sağa yasla */
-}
-
-/* Dil seçeneğini her sayfada görünür yap */
 #language-select {
     display: block; /* Her sayfada görünür olacak */
     padding: 5px;
@@ -101,6 +93,60 @@ header {
     color: #007bff; /* Hover rengini ayarlayın */
 }
 
+/* Ürün sayfası düzeni */
+.product-page {
+    display: flex;
+    flex-direction: row; /* Yan yana hizalama */
+    justify-content: space-between; /* İçeriği yanlara yayar */
+    align-items: flex-start; /* Üstten hizalar */
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sol taraf: Resimler */
+.product-images {
+    display: flex;
+    flex-direction: column; /* Resimleri alt alta diz */
+    width: 30%; /* Sol tarafın genişliği */
+    margin-right: 20px; /* Sağ taraftan boşluk bırak */
+}
+
+.product-card-image {
+    width: 100%; /* Resimler kapsayıcı genişlikte olur */
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px; /* Resimler arasında boşluk */
+    border-radius: 8px;
+}
+
+/* Sağ taraf: Metinler */
+.product-card-body {
+    flex: 1; /* Sağ tarafın genişliği esnek olur */
+    min-height: 100%; /* Sağ tarafın resimlerin boyuna uyum sağlaması için min height ayarlandı */
+    padding: 15px;
+    box-sizing: border-box; /* İçerik taşmasını önler */
+}
+
+/* Responsive düzen */
+@media (max-width: 768px) {
+    .product-page {
+        flex-direction: column; /* Küçük ekranlarda alt alta geçer */
+    }
+
+    .product-images {
+        width: 100%; /* Tam genişlikte olur */
+        margin-right: 0; /* Boşluk kalkar */
+    }
+
+    .product-card-body {
+        width: 100%; /* Sağ taraf da tam genişlikte olur */
+    }
+}
 /* Card container stil ayarları */
 .card-container {
     display: flex;
@@ -116,7 +162,7 @@ header {
     border: 1px solid #ddd; /* İnce sınır */
     border-radius: 8px; /* Köşeleri yuvarlatma */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Hafif gölge */
-    width: 400px; /* Card genişliği */
+    width: 450px; /* Card genişliği */
     text-align: center;
 }
 
@@ -129,6 +175,10 @@ header {
 .card p {
     margin: 10px 0; /* Metin üstü ve altı boşluğu */
     padding: 0 10px; /* Metin yan boşlukları */
+}
+
+.card-title {
+    font-size: 24px;
 }
 
 /* Buton stil ayarları */
@@ -146,65 +196,6 @@ header {
 
 .btn-see-more:hover {
     background-color: #666; /* Hover efekti için daha koyu gri */
-}
-
-/* Ürün Kartı Stil Ayarları */
-.product-card {
-    display: flex;
-    align-items: flex-start; /* Üst hizaya göre ayarlar */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 1500px; /* Genişlik ayarlandı */
-    margin: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s;
-}
-
-.product-card-image {
-    width: 450px; /* Genişlik ayarlandı */
-    height: auto;
-    object-fit: cover;
-}
-
-.product-card-body {
-    padding: 15px;
-    flex: 1;
-}
-
-.product-card-title {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.product-card-subtitle {
-    font-size: 1.2em;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.product-card-description {
-    font-size: 1em;
-    color: #555;
-    margin: 10px 0;
-}
-
-.product-card-list {
-    list-style-type: disc;
-    margin: 10px 0;
-    padding-left: 20px;
-}
-
-.product-card-list ul {
-    list-style-type: circle;
-    margin: 10px 0;
-    padding-left: 20px;
-}
-
-.product-card-list li {
-    margin: 5px 0;
 }
 
 /* About Us Section */
@@ -338,8 +329,6 @@ button {
     cursor: pointer;
     width: 100%;
 }
-
 button:hover {
     background-color: #0056b3;
 }
-

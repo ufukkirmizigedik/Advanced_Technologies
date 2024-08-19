@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar homepage">
     <div class="navbar-logo">
-        <img src="{% get_media_prefix %}img/logo_transparent.png" alt="Logo">
+        <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
     </div>
     <div class="navbar-links">
         <a href="/">Home</a>
@@ -29,7 +29,7 @@
         <h1>Contact Us</h1>
         <div class="contact-content">
             <div class="contact-info">
-                <h2>Our Address</h2>
+
                 <p>
                     Advanced Technologies LLC<br>
                     VAT 01106202410066<br>
@@ -41,14 +41,6 @@
         </div>
     </div>
 </section>
-<div class="contact-form">
-    <h2>Get In Touch</h2>
-    <form method="post" action="{% url 'contact_form' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send Message</button>
-    </form>
-</div>
 
 <footer>
     <div class="footer-content">
