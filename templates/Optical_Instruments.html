@@ -1,32 +1,38 @@
-{% load static %}
-
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optical Instruments</title>
+    <title>Optical instruments</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar homepage">
+<!-- Navbar -->
+<nav class="navbar">
     <div class="navbar-logo">
-        <!-- Buraya logo ekleyebilirsiniz -->
+        <!-- Logo -->
         <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
     </div>
     <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-
+        <a href="/">{% trans "Home"%}</a>
+        <a href="/about">{% trans "About"%}</a>
+        <a href="/contact">{% trans "Contact"%}</a>
     </div>
     <div id="language-select">
         <!-- Dil seçenekleri burada olacak -->
-        <a href="/language/english">English</a>
-        <a href="/language/russian">Russian</a>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans "Russian" %}</option>
+                </select>
+            </label>
+        </form>
     </div>
 </nav>
-
 <!-- Main Content -->
 <main class="product-page">
     <!-- Left Column: Images -->
@@ -41,40 +47,39 @@
 
     <!-- Right Column: Product Information -->
  <div class="product-card-body">
-    <h1 class="product-card-title"><strong>Optical Instruments</strong></h1>
+    <h1 class="product-card-title"><strong>{% trans "Optical Instruments"%}</strong></h1>
 
-    <h2 class="product-card-subtitle"><strong>Spectrometers</strong></h2>
-    <p><strong>Description:</strong> Spectrometers are instruments used to measure the properties of light across various wavelengths. They help in analyzing electromagnetic radiation to determine the composition of substances.</p>
-    <p><strong>Usage:</strong> Commonly used in chemistry and physics laboratories for analyzing light and radiation, including mass spectrometers and optical spectrometers.</p>
+    <h2 class="product-card-subtitle"><strong>{% trans "Spectrometers" %}</strong></h2>
+    <p><strong>{% trans "Description"%}:</strong>{% trans "Spectrometers are instruments used to measure the properties of light across various wavelengths. They help in analyzing electromagnetic radiation to determine the composition of substances."%}</p>
+    <p><strong>{% trans "Usage"%}:</strong>{% trans "Commonly used in chemistry and physics laboratories for analyzing light and radiation, including mass spectrometers and optical spectrometers."%}</p>
 
-    <h2 class="product-card-subtitle"><strong>Laser Rangefinders</strong></h2>
-    <p><strong>Description:</strong> Laser rangefinders use laser technology to measure distances with high precision by calculating the time it takes for a laser pulse to travel to a target and back.</p>
-    <p><strong>Usage:</strong> Used in surveying, construction, and mapping applications to measure distances accurately, essential for tasks such as targeting, navigation, and creating detailed maps</p>
+    <h2 class="product-card-subtitle"><strong>{% trans "Laser Rangefinders"%}</strong></h2>
+    <p><strong>{% trans "Description"%}:</strong>{% trans "Laser rangefinders use laser technology to measure distances with high precision by calculating the time it takes for a laser pulse to travel to a target and back."%}</p>
+    <p><strong>{% trans "Usage"%}:</strong>{% trans "Used in surveying, construction, and mapping applications to measure distances accurately, essential for tasks such as targeting, navigation, and creating detailed maps."%}</p>
 
-    <h2 class="product-card-subtitle"><strong>Applications</strong></h2>
+    <h2 class="product-card-subtitle"><strong>{% trans "Applications"%}</strong></h2>
 
-    <h3><strong>Space Exploration</strong></h3>
-    <p><strong>Description:</strong> Optical instruments in space exploration include telescopes and imaging systems designed to observe celestial bodies and phenomena.</p>
-    <p><strong>Usage:</strong> Space telescopes like the Hubble Space Telescope and satellite imaging systems capture high-resolution images of distant objects and Earth.</p>
+    <h3><strong>{% trans "Space Exploration"%}</strong></h3>
+    <p><strong>{% trans "Description"%}:</strong>{% trans "Optical instruments in space exploration include telescopes and imaging systems designed to observe celestial bodies and phenomena."%}</p>
+    <p><strong>{% trans "Usage"%}:</strong>{% trans "Space telescopes like the Hubble Space Telescope and satellite imaging systems capture high-resolution images of distant objects and Earth."%}</p>
 
-    <h3><strong>Scientific Research</strong></h3>
-    <p><strong>Description:</strong> These instruments are crucial for research in various scientific fields, providing detailed observations and analyses.</p>
-    <p><strong>Usage:</strong> Microscopes are used in biology and medicine for studying cells and tissues, while spectrometers assist in analyzing material properties in chemistry and physics.</p>
+    <h3><strong>{% trans "Scientific Research"%}</strong></h3>
+    <p><strong>{% trans "Description"%}:</strong>{% trans "These instruments are crucial for research in various scientific fields, providing detailed observations and analyses."%}</p>
+    <p><strong>{% trans "Usage"%}:</strong>{% trans "Microscopes are used in biology and medicine for studying cells and tissues, while spectrometers assist in analyzing material properties in chemistry and physics."%}</p>
 
-    <h3><strong>Surveying and Engineering</strong></h3>
-    <p><strong>Description:</strong> Optical instruments aid in creating precise models and maps of physical environments.</p>
-    <p><strong>Usage:</strong> Laser scanners are employed to generate detailed 3D models for construction projects and topographic mapping.</p>
+    <h3><strong>{% trans "Surveying and Engineering"%}</strong></h3>
+    <p><strong>{% trans "Description"%}:</strong>{% trans "Optical instruments aid in creating precise models and maps of physical environments."%}</p>
+    <p><strong>{% trans "Usage"%}:</strong>{% trans "Laser scanners are employed to generate detailed 3D models for construction projects and topographic mapping."%}</p>
 
-    <h2 class="product-card-subtitle"><strong>Benefits</strong></h2>
+    <h2 class="product-card-subtitle"><strong>{% trans "Benefits"%}</strong></h2>
     <ul class="product-card-list">
-        <li><strong>Precision:</strong> Provides highly accurate measurements and detailed imagery.</li>
-        <li><strong>Versatility:</strong> Applicable across various fields, from astronomy to microscopy.</li>
-        <li><strong>Advancement:</strong> Continuously evolving technology offers enhanced capabilities and new applications.</li>
+        <li><strong>{% trans "Precision"%}:</strong>{% trans "Provides highly accurate measurements and detailed imagery."%}</li>
+        <li><strong>{% trans "Versatility"%}:</strong>{% trans "Applicable across various fields, from astronomy to microscopy."%}</li>
+        <li><strong>{% trans "Advancement"%}:</strong>{% trans "Continuously evolving technology offers enhanced capabilities and new applications."%}</li>
     </ul>
 
     <p class="product-card-description">
-        In summary, optical instruments play a crucial role in modern science and technology. They offer distinct advantages tailored to specific needs and contribute significantly to research, exploration, and practical applications.
-    </p>
+        {% trans "In summary, optical instruments play a crucial role in modern science and technology. They offer distinct advantages tailored to specific needs and contribute significantly to research, exploration, and practical applications."%}</p>
 </div>
 
 

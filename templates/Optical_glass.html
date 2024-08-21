@@ -1,7 +1,7 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +16,21 @@
         <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
     </div>
     <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+        <a href="/">{% trans "Home"%}</a>
+        <a href="/about">{% trans "About"%}</a>
+        <a href="/contact">{% trans "Contact"%}</a>
     </div>
     <div id="language-select">
-        <!-- Language Options -->
-        <a href="/language/english">English</a>
-        <a href="/language/russian">Russian</a>
+        <!-- Dil seçenekleri burada olacak -->
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans "Russian" %}</option>
+                </select>
+            </label>
+        </form>
     </div>
 </nav>
 
@@ -42,74 +49,55 @@
 
     <!-- Right Column: Product Information -->
     <div class="product-card-body">
-        <h2 class="product-card-title">Optical Glass</h2>
+        <h2 class="product-card-title">{% trans "Optical Glass" %}</h2>
         <p class="product-card-description">
-            <strong>Optical glass</strong> is a specialized material used extensively in advanced technologies, space
-            exploration, and laser systems. It is known for its precision and
-            clarity, which are crucial for various high-performance instruments.
-        </p>
-        <h3 class="product-card-subtitle">Types of Optical Glass</h3>
+            <strong>{% trans "Optical glass"%}</strong> {% trans "is a specialized material used extensively in advanced technologies, space exploration, and laser systems. It is known for its precision and clarity, which are crucial for various high-performance instruments."%}</p>
+        <h3 class="product-card-subtitle">{% trans "Types of Optical Glass"%}</h3>
         <ul class="product-card-list">
             <p class="product-card-description">
-            <h2>Crown Glass</h2>
-            <p><strong>Description:</strong> A type of optical glass with a low refractive index and low dispersion.</p>
-            <p><strong>Usage:</strong> Commonly used in lenses where minimal chromatic aberration is desired.</p>
+            <h2>{% trans "Crown Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "A type of optical glass with a low refractive index and low dispersion."%}</p><p><strong>{% trans "Usage" %}:</strong> {% trans "Commonly used in lenses where minimal chromatic aberration is desired."%}</p>
 
-            <h2>Flint Glass</h2>
-            <p><strong>Description:</strong> Optical glass with a high refractive index and high dispersion.</p>
-            <p><strong>Usage:</strong> Often used in combination with crown glass to correct chromatic aberration.</p>
+            <h2>{% trans "Flint Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "Optical glass with a high refractive index and high dispersion."%}</p> <p><strong>{% trans "Usage"%}:</strong> {% trans "Often used in combination with crown glass to correct chromatic aberration."%}</p>
 
-            <h2>High-Index Glass</h2>
-            <p><strong>Description:</strong> Glass with a high refractive index, which allows for thinner lenses.</p>
-            <p><strong>Usage:</strong> Used in high-performance optics and compact lenses.</p>
+            <h2>{% trans "High-Index Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "Glass with a high refractive index, which allows for thinner lenses."%}</p> <p><strong>{% trans "Usage"%}:</strong>{% trans "Used in high-performance optics and compact lenses."%}</p>
 
-            <h2>Low-Dispersion Glass</h2>
-            <p><strong>Description:</strong> Glass designed to minimize chromatic aberration by reducing dispersion.</p>
-            <p><strong>Usage:</strong> Ideal for high-precision optical systems such as telescopes and microscopes.</p>
+            <h2>{% trans "Low-Dispersion Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "Glass designed to minimize chromatic aberration by reducing dispersion."%}</p> <p><strong>{% trans "Usage"%}:</strong>{% trans "Ideal for high-precision optical systems such as telescopes and microscopes."%}</p>
 
-            <h2>Quartz Glass</h2>
-            <p><strong>Description:</strong> Made from pure silica, it has high transmission across a broad range of
-                wavelengths.</p>
-            <p><strong>Usage:</strong> Used in UV optics and high-temperature applications.</p>
+            <h2>{% trans "Quartz Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "Made from pure silica, it has high transmission across a broad range of wavelengths."%}</p>
+            <p><strong>{% trans "Usage"%}:</strong>{% trans "Used in UV optics and high-temperature applications."%}</p>
 
-            <h2>Photoelastic Glass</h2>
-            <p><strong>Description:</strong> Glass that changes its optical properties under stress.</p>
-            <p><strong>Usage:</strong> Utilized in stress analysis and experimental mechanics.</p>
+            <h2>{% trans "Photoelastic Glass"%}</h2>
+            <p><strong>{% trans "Description"%}:</strong>{% trans "Glass that changes its optical properties under stress."%} </p> <p><strong>{% trans "Usage"%}:</strong>{% trans "Utilized in stress analysis and experimental mechanics."%}</p>
 
             <!-- Liste elemanlarını buraya ekle -->
         </ul>
-        <h3 class="product-card-subtitle">Applications</h3>
+        <h3 class="product-card-subtitle">{% trans "Applications"%}</h3>
         <ul class="product-card-list">
             <p class="product-card-description">
 
-            <h2>Space Exploration</h2>
-            <p><strong>Applications:</strong> Lenses and mirrors in telescopes, spacecraft cameras, and optical
-                instruments.</p>
-            <p><strong>Benefits:</strong> High durability and stability in extreme conditions; precise imaging and
-                observation.</p>
+            <h2>{% trans "Space Exploration"%}</h2>
+            <p><strong>{% trans "Applications"%}:</strong>{% trans "Lenses and mirrors in telescopes, spacecraft cameras, and optical instruments."%}</p>
+            <p><strong>{% trans "Benefits"%}:</strong>{% trans "High durability and stability in extreme conditions; precise imaging and observation."%}</p>
 
-            <h2>Medical Instruments</h2>
-            <p><strong>Applications:</strong> Lenses and optical systems in microscopes, endoscopes, and imaging
-                devices.</p>
-            <p><strong>Benefits:</strong> Allows for accurate diagnosis and observation; enhances image quality and
-                detail.</p>
+            <h2>{% trans "Medical Instruments"%}</h2>
+            <p><strong>{% trans "Applications"%}:</strong>{% trans "Lenses and optical systems in microscopes, endoscopes, and imaging devices."%}</p>
+            <p><strong>{% trans "Benefits"%}:</strong>{% trans "Allows for accurate diagnosis and observation; enhances image quality and detail."%}</p>
 
-            <h2>Laser Systems</h2>
-            <p><strong>Applications:</strong> Optical components in laser beam steering, focusing, and wavelength
-                management.</p>
-            <p><strong>Benefits:</strong> Ensures precise beam control and minimal distortion.</p>
+            <h2>{% trans "Laser Systems"%}</h2>
+            <p><strong>{% trans "Applications"%}:</strong>{% trans "Optical components in laser beam steering, focusing, and wavelength management."%}</p>
+            <p><strong>{% trans "Benefits"%}:</strong>{% trans "Ensures precise beam control and minimal distortion."%}</p>
 
-            <h2>Consumer Electronics</h2>
-            <p><strong>Applications:</strong> Lenses in cameras, projectors, and eyeglasses.</p>
-            <p><strong>Benefits:</strong> Enhances image quality, enables compact designs, and improves optical
-                performance.</p>
+            <h2>{% trans "Consumer Electronics"%}</h2>
+            <p><strong>{% trans "Applications"%}:</strong>{% trans "Lenses in cameras, projectors, and eyeglasses."%}</p> <p><strong>{% trans "Benefits"%}:</strong>{% trans "Enhances image quality, enables compact designs, and improves optical performance."%}</p>
 
 
             <p class="product-card-description">
-                In conclusion, optical glass is an indispensable material in modern technology, offering crucial
-                advantages in space, and laser applications. Its various types each provide specific benefits
-                suited to different uses, though they also come with challenges that need to be managed to maximize
-                their effectiveness.
+                {% trans "In conclusion, optical glass is an indispensable material in modern technology, offering crucial advantages in space, and laser applications. Its various types each provide specific benefits suited to different uses, though they also come with challenges that need to be managed to maximize their effectiveness."%}
             </p>
         </ul>
     </div>

@@ -1,29 +1,36 @@
-{% load static %}
-
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optical glass processing equipment</title>
+    <title>Optical Glass</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar homepage">
+<!-- Navbar -->
+<nav class="navbar">
     <div class="navbar-logo">
-        <!-- Buraya logo ekleyebilirsiniz -->
+        <!-- Logo -->
         <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
     </div>
     <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-
+        <a href="/">{% trans "Home"%}</a>
+        <a href="/about">{% trans "About"%}</a>
+        <a href="/contact">{% trans "Contact"%}</a>
     </div>
     <div id="language-select">
         <!-- Dil seçenekleri burada olacak -->
-        <a href="/language/english">English</a>
-        <a href="/language/russian">Russian</a>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans "Russian" %}</option>
+                </select>
+            </label>
+        </form>
     </div>
 </nav>
 <!-- Main Content -->
@@ -41,82 +48,95 @@
 
     <!-- Right Column: Product Information -->
    <div class="product-card-body">
-    <h2 class="product-card-title"><strong>Optical Glass Processing Equipment</strong></h2>
+    <h2 class="product-card-title"><strong>{% trans "Optical Glass Processing Equipment"%}</strong></h2>
 
     <p class="product-card-description">
-        <strong>Optical glass processing equipment</strong> is crucial for shaping, grinding, and polishing optical glass used in various high-precision applications. This equipment ensures the meticulous fabrication of lenses and optical components, which are essential for achieving superior performance in advanced technologies.
-    </p>
+        <strong>{% trans "Optical glass processing equipment"%}</strong> {% trans "is crucial for shaping, grinding, and polishing optical glass used in various high-precision applications. This equipment ensures the meticulous fabrication of lenses and optical components, which are essential for achieving superior performance in advanced technologies."%}</p>
 
-    <h2 class="product-card-subtitle"><strong>Types of Optical Glass Processing Equipment</strong></h2>
+    <h2 class="product-card-subtitle"><strong>{% trans "Types of Optical Glass Processing Equipment"%}</strong></h2>
     <ul class="product-card-list">
-        <li><strong>Glass Grinding Machines</strong>
+        <li><strong>{% trans "Glass Grinding Machines"%}</strong>
             <ul>
-                <li><strong>Description:</strong> Used to grind optical glass into specific shapes and sizes. These machines are fundamental in producing lenses and prisms with precise geometries.</li>
-                <li><strong>Usage:</strong> Essential for creating high-quality optical components by accurately shaping optical glass.</li>
-                <li><strong>Benefits:</strong> Allows for accurate shaping, crucial for the production of high-precision optical elements.</li>
+                <li><strong>{% trans "Description"%}:</strong>{% trans "Used to grind optical glass into specific shapes and sizes. These machines are fundamental in producing lenses and prisms with precise geometries."%}</li>
+                <li><strong>{% trans "Usage"%}:</strong>{% trans "Essential for creating high-quality optical components by accurately shaping optical glass."%}</li>
+                <li><strong>{% trans "Benefits"%}:</strong>{% trans "Allows for accurate shaping, crucial for the production of high-precision optical elements."%}</li>
 
             </ul>
         </li>
-        <li><strong>Polishing Machines</strong>
+        <li><strong>{% trans "Polishing Machines"%}</strong>
             <ul>
-                <li><strong>Description:</strong> Employed to polish optical glass surfaces to achieve a smooth, scratch-free finish. This step is crucial for ensuring clarity and reducing optical distortions.</li>
-                <li><strong>Usage:</strong> Improves the optical quality of glass by eliminating surface imperfections.</li>
-                <li><strong>Benefits:</strong> Enhances optical performance by providing a flawless finish to optical components.</li>
+                <li><strong>{% trans "Description"%}:</strong>{% trans "Employed to polish optical glass surfaces to achieve a smooth, scratch-free finish. This step is crucial for ensuring clarity and reducing optical distortions."%}</li>
+                <li><strong>{% trans "Usage"%}:</strong>{% trans "Improves the optical quality of glass by eliminating surface imperfections."%}</li>
+                <li><strong>{% trans "Benefits"%}:</strong>{% trans "Enhances optical performance by providing a flawless finish to optical components."%}</li>
 
             </ul>
         </li>
-        <li><strong>Coating Systems</strong>
+        <li><strong>{% trans "Coating Systems"%}</strong>
             <ul>
-                <li><strong>Description:</strong> Used to apply thin layers of coatings to optical glass to enhance its performance, such as anti-reflective coatings or protective layers.</li>
-                <li><strong>Usage:</strong> Enhances optical performance and durability of glass components through protective coatings.</li>
-                <li><strong>Benefits:</strong> Improves performance and longevity of optical components by adding protective layers.</li>
+                <li><strong>{% trans "Description"%}:</strong>{% trans "Used to apply thin layers of coatings to optical glass to enhance its performance, such as anti-reflective coatings or protective layers."%}</li>
+                <li><strong>{% trans "Usage"%}:</strong>{% trans "Enhances optical performance and durability of glass components through protective coatings."%}</li>
+                <li><strong>{% trans "Benefits"%}:</strong>{% trans "Improves performance and longevity of optical components by adding protective layers."%}</li>
 
             </ul>
         </li>
-        <li><strong>Testing and Inspection Equipment</strong>
+        <li><strong>{% trans "Testing and Inspection Equipment"%}</strong>
             <ul>
-                <li><strong>Description:</strong> Utilized to inspect the quality and precision of optical glass after processing. Includes interferometers and other optical testing devices.</li>
-                <li><strong>Usage:</strong> Ensures that processed optical glass meets required standards and specifications.</li>
-                <li><strong>Benefits:</strong> Guarantees that optical glass meets quality and precision requirements.</li>
+                <li><strong>{% trans "Description"%}:</strong>{% trans "Utilized to inspect the quality and precision of optical glass after processing. Includes interferometers and other optical testing devices."%}</li>
+                <li><strong>{% trans "Usage"%}:</strong>{% trans "Ensures that processed optical glass meets required standards and specifications."%}</li>
+                <li><strong>{% trans "Benefits"%}:</strong>{% trans "Guarantees that optical glass meets quality and precision requirements."%}</li>
+
+            </ul>
+        </li>
+        <li><strong>{% trans "CNC Systems"%}</strong>
+            <ul>
+                <li><strong>{% trans "Description"%}:</strong>{% trans "CNC machines automate the precise shaping of optical glass into complex forms using programmed instructions."%}</li>
+                <li><strong>{% trans "Usage"%}:</strong>{% trans "Essential for producing intricate optical components with consistent precision."%}</li>
+                <li><strong>{% trans "Benefits"%}:</strong>{% trans "Increases efficiency, ensures high accuracy, and allows for complex designs"%}.
+
+
+
+
+
+
+</li>
 
             </ul>
         </li>
     </ul>
 
-    <h2 class="product-card-subtitle"><strong>Applications</strong></h2>
+    <h2 class="product-card-subtitle"><strong>{% trans "Applications"%}</strong></h2>
     <ul class="product-card-list">
 
-        <li><strong>Space Exploration</strong>
+        <li><strong>{% trans "Space Exploration"%}</strong>
             <ul>
-                <li><strong>Telescopes and Satellites:</strong> Optical glass processing equipment is crucial for producing components used in space telescopes and satellite imaging systems. High-quality grinding and polishing ensure minimal distortion in astronomical observations.</li>
-                <li><strong>Spacecraft Instruments:</strong> Coating systems are used to apply protective coatings to optical components in spacecraft, enhancing their durability and performance in harsh space environments.</li>
+                <li><strong>{% trans "Telescopes and Satellites"%}:</strong>{% trans "Optical glass processing equipment is crucial for producing components used in space telescopes and satellite imaging systems. High-quality grinding and polishing ensure minimal distortion in astronomical observations."%}</li>
+                <li><strong>{% trans "Spacecraft Instruments"%}:</strong>{% trans "Coating systems are used to apply protective coatings to optical components in spacecraft, enhancing their durability and performance in harsh space environments."%}</li>
             </ul>
         </li>
-        <li><strong>Scientific Research</strong>
+        <li><strong>{% trans "Scientific Research"%}</strong>
             <ul>
-                <li><strong>Laboratory Instruments:</strong> Used to produce optical components for microscopes, spectrometers, and other research instruments. Precision processing ensures accurate and reliable scientific measurements.</li>
-                <li><strong>Medical Devices:</strong> Optical glass processing equipment is employed to manufacture lenses and optical elements for medical imaging devices and diagnostic instruments.</li>
+                <li><strong>{% trans "Laboratory Instruments"%}:</strong>{% trans "Used to produce optical components for microscopes, spectrometers, and other research instruments. Precision processing ensures accurate and reliable scientific measurements."%}</li>
+                <li><strong>{% trans "Medical Devices"%}:</strong>{% trans "Optical glass processing equipment is employed to manufacture lenses and optical elements for medical imaging devices and diagnostic instruments."%}</li>
             </ul>
         </li>
-        <li><strong>Consumer Electronics</strong>
+        <li><strong>{% trans "Consumer Electronics"%}</strong>
             <ul>
-                <li><strong>Cameras and Projectors:</strong> Optical glass processing equipment helps produce high-quality lenses for cameras, projectors, and other consumer electronics, enhancing image clarity and performance.</li>
+                <li><strong>{% trans "Cameras and Projectors"%}:</strong>{% trans "Optical glass processing equipment helps produce high-quality lenses for cameras, projectors, and other consumer electronics, enhancing image clarity and performance."%}</li>
             </ul>
         </li>
     </ul>
 
-    <h2 class="product-card-subtitle"><strong>Benefits</strong></h2>
+    <h2 class="product-card-subtitle"><strong>{% trans "Benefits"%}</strong></h2>
     <ul class="product-card-list">
-        <li><strong>Precision Manufacturing:</strong> Ensures that optical components meet exact specifications, critical for high-performance applications in various fields.</li>
-        <li><strong>Enhanced Performance:</strong> Properly processed optical glass provides superior optical quality, improving the functionality of devices and systems.</li>
-        <li><strong>Durability:</strong> Coating systems and polishing improve the lifespan and robustness of optical components.</li>
+        <li><strong>{% trans "Precision Manufacturing"%}:</strong>{% trans "Ensures that optical components meet exact specifications, critical for high-performance applications in various fields."%}</li>
+        <li><strong>{% trans "Enhanced Performance"%}:</strong>{% trans "Properly processed optical glass provides superior optical quality, improving the functionality of devices and systems."%}</li>
+        <li><strong>{% trans "Durability"%}:</strong>{% trans "Coating systems and polishing improve the lifespan and robustness of optical components."%}</li>
     </ul>
 
 
 
     <p class="product-card-description">
-        In summary, optical glass processing equipment plays a vital role in the production of high-precision optical components used in space, scientific, and consumer applications.
-    </p>
+        {% trans "In summary, optical glass processing equipment plays a vital role in the production of high-precision optical components used in space, scientific, and consumer applications."%}</p>
 </div>
 
 </main>

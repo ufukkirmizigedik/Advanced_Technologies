@@ -287,16 +287,6 @@ footer {
     text-align: center;
 }
 
-.contact-form {
-    max-width: 600px; /* Formun genişliğini sınırlayın */
-    margin: 0 auto; /* Ortalamak için */
-    padding: 20px;
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column; /* Form elemanlarını dikey olarak hizalayın */
-}
 
 .form-group {
     margin-bottom: 20px;

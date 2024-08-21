@@ -1,69 +1,75 @@
-{% load static %}
-
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
+    <title>Optical instruments</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar homepage">
+<!-- Navbar -->
+<nav class="navbar">
     <div class="navbar-logo">
-        <!-- Buraya logo ekleyebilirsiniz -->
+        <!-- Logo -->
         <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
     </div>
     <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-
+        <a href="/">{% trans "Home"%}</a>
+        <a href="/about">{% trans "About"%}</a>
+        <a href="/contact">{% trans "Contact"%}</a>
     </div>
     <div id="language-select">
         <!-- Dil seçenekleri burada olacak -->
-        <a href="/language/english">English</a>
-        <a href="/language/russian">Russian</a>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans "Russian" %}</option>
+                </select>
+            </label>
+        </form>
     </div>
 </nav>
-
 
   <section class="about-us">
         <div class="container">
             <div class="about-us-content">
-                <h1>About Us</h1>
-                <p>Welcome to Advanced Technologies LLC, where innovation meets excellence. As a leading provider in the field of optical technology, we specialize in sourcing and delivering the highest quality optical glass, optical instruments, and optical glass processing equipment from the world's most renowned and reliable manufacturers.</p>
+                <h1>{% trans "About Us"%}</h1>
+                <p>{% trans "Welcome to Advanced Technologies LLC, where innovation meets excellence. As a leading provider in the field of optical technology, we specialize in sourcing and delivering the highest quality optical glass, optical instruments, and optical glass processing equipment from the world's most renowned and reliable manufacturers."%}</p>
 
                 <div class="info-section">
-                    <h2>Our Mission</h2>
-                    <p>At Advanced Technologies LLC, our mission is to bridge the gap between advanced optical technology and our valued customers. We pride ourselves on our ability to procure state-of-the-art optical products tailored to your specific needs, ensuring precision, performance, and reliability in every delivery.</p>
+                    <h2>{% trans "Our Mission"%}</h2>
+                    <p>{% trans "At Advanced Technologies LLC, our mission is to bridge the gap between advanced optical technology and our valued customers. We pride ourselves on our ability to procure state-of-the-art optical products tailored to your specific needs, ensuring precision, performance, and reliability in every delivery."%}</p>
                 </div>
 
                 <div class="info-section">
-                    <h2>Our Expertise</h2>
-                    <h3>Optical Glass</h3>
-                    <p>We offer a comprehensive range of optical glass, including fused silica, borosilicate glass, and lead glass. These materials are critical for various high-tech applications, from military and aerospace to laser systems. By sourcing from top-tier manufacturers, we ensure that you receive glass with exceptional clarity, durability, and performance.</p>
+                    <h2>{% trans "Our Expertise"%}</h2>
+                    <h3>{% trans "Optical Glass"%}</h3>
+                    <p>{% trans "We offer a comprehensive range of optical glass, including fused silica, borosilicate glass, and lead glass. These materials are critical for various high-tech applications, from military and aerospace to laser systems. By sourcing from top-tier manufacturers, we ensure that you receive glass with exceptional clarity, durability, and performance."%}</p>
 
-                    <h3>Optical Instruments</h3>
-                    <p>Our collection of optical instruments encompasses advanced devices designed to enhance vision and measure optical properties. Whether it’s high-powered telescopes, precision microscopes, or cutting-edge lasers, we source instruments that are essential for scientific research, defense, and space exploration.</p>
+                    <h3>{% trans "Optical Instruments"%}</h3>
+                    <p>{% trans "Our collection of optical instruments encompasses advanced devices designed to enhance vision and measure optical properties. Whether it’s high-powered telescopes, precision microscopes, or cutting-edge lasers, we source instruments that are essential for scientific research, defense, and space exploration."%}</p>
 
-                    <h3>Optical Glass Processing Equipment</h3>
-                    <p>We supply advanced processing equipment for the fabrication of optical components. Our equipment, used for shaping, grinding, and polishing, is sourced from leading global manufacturers to guarantee the precision and quality required for high-performance optical systems.</p>
+                    <h3>{% trans "Optical Glass Processing Equipment"%}</h3>
+                    <p>{% trans "We supply advanced processing equipment for the fabrication of optical components. Our equipment, used for shaping, grinding, and polishing, is sourced from leading global manufacturers to guarantee the precision and quality required for high-performance optical systems."%}</p>
                 </div>
 
                 <div class="info-section">
-                    <h2>Why Choose Us?</h2>
+                    <h2>{% trans "Why Choose Us?"%}</h2>
                     <ul>
-                        <li><strong>Global Reach:</strong> We work with the largest and most reliable manufacturers across the globe, ensuring that our products meet the highest standards of quality and performance.</li>
-                        <li><strong>Tailored Solutions:</strong> We understand that each project has unique requirements. Our team is dedicated to providing customized solutions that cater to your specific needs, whether for military, aerospace, or industrial applications.</li>
-                        <li><strong>Commitment to Quality:</strong> Quality is at the core of what we do. From the initial procurement to final delivery, we ensure that every product meets stringent quality controls to deliver outstanding results.</li>
-                        <li><strong>Customer Satisfaction:</strong> Our customer-centric approach means that we are committed to providing exceptional service and support throughout the entire process. Your satisfaction is our top priority.</li>
+                        <li><strong>{% trans "Global Reach"%}:</strong>{% trans "We work with the largest and most reliable manufacturers across the globe, ensuring that our products meet the highest standards of quality and performance."%}</li>
+                        <li><strong>{% trans "Tailored Solutions"%}:</strong>{% trans "We understand that each project has unique requirements. Our team is dedicated to providing customized solutions that cater to your specific needs, aerospace, or industrial applications."%}</li>
+                        <li><strong>{% trans "Commitment to Quality"%}:</strong>{% trans "Quality is at the core of what we do. From the initial procurement to final delivery, we ensure that every product meets stringent quality controls to deliver outstanding results."%}</li>
+                        <li><strong>{% trans "Customer Satisfaction"%}:</strong>{% trans "Our customer-centric approach means that we are committed to providing exceptional service and support throughout the entire process. Your satisfaction is our top priority."%}</li>
                     </ul>
                 </div>
 
                 <div class="info-section">
-                    <h2>Our Promise</h2>
-                    <p>At Advanced Technologies LLC, we are dedicated to delivering excellence in every product and service. Our promise is to provide you with the best optical technology solutions, backed by our extensive industry expertise and commitment to quality. Whether you’re working on cutting-edge research, critical defense systems, or advanced space missions, we are here to support your success with the best optical products available.</p>
+                    <h2>{% trans "Our Promise"%}</h2>
+                    <p>{% trans "At Advanced Technologies LLC, we are dedicated to delivering excellence in every product and service. Our promise is to provide you with the best optical technology solutions, backed by our extensive industry expertise and commitment to quality. Whether you’re working on cutting-edge research, critical defense systems, or advanced space missions, we are here to support your success with the best optical products available."%}</p>
                 </div>
             </div>
         </div>
