@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'django-insecure-@on2r6w(mw1u_g@*rx#(p#g5l1zfh)g)%3u$nq--_=v*!mfm=f'
+SECRET_KEY = 'your scret key' 
 
 
 
