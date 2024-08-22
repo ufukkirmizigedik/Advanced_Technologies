@@ -2,12 +2,11 @@
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
-from dotenv import load_dotenv
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-load_dotenv()  # .env dosyasını oku
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-@on2r6w(mw1u_g@*rx#(p#g5l1zfh)g)%3u$nq--_=v*!mfm=f
 
 
 
