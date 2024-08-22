@@ -2,6 +2,14 @@
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+load_dotenv()  # .env dosyasını oku
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,14 +18,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@on2r6w(mw1u_g@*rx#(p#g5l1zfh)g)%3u$nq--_=v*!mfm=f'
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','https://c86b-158-255-211-217.ngrok-free.app ']
-CSRF_TRUSTED_ORIGINS =['https://c86b-158-255-211-217.ngrok-free.app/']
+ALLOWED_HOSTS = ['advancedt.ru','www.advancedt.ru','146.0.73.226']
+
 
 # Application definition
 

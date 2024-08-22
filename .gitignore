@@ -1,0 +1,5 @@
+# Ortam değişkenleri dosyası
+.env
+
+# Sanal ortam dosyaları
+venv/
