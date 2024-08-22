@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 16:51+0300\n"
+"POT-Creation-Date: 2024-08-22 09:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -621,10 +621,6 @@ msgstr ""
 "точностью."
 
 #: .\templates\Optical_glass_processing_equipment.html:94
-#, fuzzy
-#| msgid ""
-#| "Increases efficiency, ensures high accuracy, and allows for complex "
-#| "designs "
 msgid ""
 "Increases efficiency, ensures high accuracy, and allows for complex designs"
 msgstr ""
@@ -785,7 +781,7 @@ msgstr ""
 
 #: .\templates\about.html:49
 msgid "Our Expertise"
-msgstr "Наша экспертиза"
+msgstr "Мы предлагаем"
 
 #: .\templates\about.html:51
 msgid ""
@@ -842,9 +838,9 @@ msgid ""
 "ensuring that our products meet the highest standards of quality and "
 "performance."
 msgstr ""
-" Мы работаем с крупнейшими и наиболее надежными производителями по всему миру,"
-"обеспечивая, чтобы наша продукция соответствовала самым высоким стандартам "
-"качества и производительности."
+" Мы работаем с крупнейшими и наиболее надежными производителями по всему "
+"миру,обеспечивая, чтобы наша продукция соответствовала самым высоким "
+"стандартам качества и производительности."
 
 #: .\templates\about.html:64
 msgid "Tailored Solutions"
@@ -906,13 +902,17 @@ msgstr ""
 "предоставить вам лучшие решения в области оптических технологий, "
 "подкрепленные нашим обширным опытом в отрасли и приверженностью к качеству. "
 "Независимо от того, работаете ли вы над передовыми исследованиями, "
-"критически важными оборонными системами или сложнымикосмическими миссиями, "
+"критически важными оборонными системами или сложными космическими миссиями, "
 "мы здесь, чтобы поддержать ваш успех с помощью лучших доступных оптических "
 "продуктов."
 
 #: .\templates\contact.html:39
 msgid "Contact Us"
 msgstr "Свяжитесь с нами"
+
+#: .\templates\contact.html:43
+msgid "Advanced Technologies LLC"
+msgstr "ОсОО Адвенсэд Технолоджис"
 
 #: .\templates\contact.html:44
 msgid "VAT"
@@ -970,11 +970,12 @@ msgid ""
 "optical instruments. The integration of automation and computer-controlled "
 "systems in this equipment enhances precision."
 msgstr ""
-"Оборудование для обработки оптического стекла состоит изсовременных станков "
-"для придания формы, шлифовки и полировки оптического стекла "
-"Это оборудование гарантирует точное изготовление линз и компонентов,"
-"необходимых для высокопроизводительных оптических приборов."
-"Интеграция автоматизации и систем компьютерного управления в это оборудование повышает точность."
+"Оборудование для обработки оптического стекла состоит из современных станков "
+"для придания формы, шлифовки и полировки оптического стекла Это оборудование "
+"гарантирует точное изготовление линз и компонентов,необходимых для "
+"высокопроизводительных оптических приборов.Интеграция автоматизации  в это "
+"оборудование повышает точность."
+
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
 msgstr ""

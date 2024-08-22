@@ -1,0 +1,83 @@
+
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Technologies LLC</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+</head>
+<body>
+<!-- Intro ekranı -->
+<div class="video-container" id="intro">
+    <video autoplay muted onended="hideIntro()">
+        <source src="{% get_media_prefix %}img/Clean LineStyle Logo_720p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<nav class="navbar homepage">
+    <div class="navbar-logo">
+        <!-- Buraya logo ekleyebilirsiniz -->
+        <img src="{% get_media_prefix %}img/logo_trans.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="/">{% trans "Home"%}</a>
+        <a href="/about">{% trans "About"%}</a>
+        <a href="/contact">{% trans "Contact"%}</a>
+    </div>
+    <div id="language-select">
+        <!-- Dil seçenekleri burada olacak -->
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <label>
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans "Russian" %}</option>
+                </select>
+            </label>
+        </form>
+    </div>
+</nav>
+
+<header class="intro-hidden" id="main-content">
+    <!-- Ana içerik burada -->
+</header>
+
+<div class="card-container">
+    <div class="card">
+        <h5 class="card-title">{% trans "Optical glass" %}</h5>
+        <img src="{% get_media_prefix %}img/optic glass.jpg" alt="Card 1">
+        <p>{% trans "Optical glass is a high-precision material used in various advanced technologies, including scientific instruments. It offers exceptional clarity and accuracy, essential for lenses, prisms,and other optical components. This glass is meticulously manufactured to ensure superior performance."%}</p>
+        <a href="/Optical_glass" class="btn-see-more">{% trans "See More"%}</a>
+    </div>
+    <div class="card">
+        <h5 class="card-title">{% trans "Optical Instruments"%}</h5>
+        <img src="{% get_media_prefix %}img/Optical Instruments.jpg" alt="Card 2">
+        <p>{% trans "Optical instruments are devices designed to enhance vision or measure optical properties. They include telescopes, microscopes, and lasers, crucial for scientific research, navigation.These instruments use advanced optics to provide precise measurements and detailed imagery." %}</p>
+        <a href="/Optical_Instruments" class="btn-see-more">{% trans "See More"%}</a>
+    </div>
+    <div class="card">
+        <h5 class="card-title">{% trans "Optical glass processing equipment"%}</h5>
+        <img src="{% get_media_prefix %}img/Optical glass processing equipment.jpg" alt="Card 3">
+        <p>{% trans "Optical glass processing equipment consists of advanced machinery for shaping, grinding, and polishing optical glass. This equipment guarantees precise lens and component fabrication, essential for high-performance optical instruments. The integration of automation and computer-controlled systems in this equipment enhances precision."%}</p>
+        <a href="/Optical_glass_processing_equipment" class="btn-see-more">{% trans "See More"%}</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Advanced Technologies LLC. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function hideIntro() {
+        document.getElementById('intro').classList.add('intro-hidden');
+        document.getElementById('main-content').classList.remove('intro-hidden');
+    }
+</script>
+</body>
+</html>
